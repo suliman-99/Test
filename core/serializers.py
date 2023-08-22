@@ -6,8 +6,8 @@ from Q11 import compare_and_visualize_drawing_similarity
 class Q10Serializer(serializers.Serializer):
     sentence = serializers.CharField()
 
-    def create(self, request, *args, **kwargs):
-        return {"data": check_sentence_meaning(request.data.get('sentence'))}
+    def create(self, validated_data):
+        return {"data": check_sentence_meaning(validated_data.get('sentence'))}
 
 
 class Q11Serializer(serializers.ModelSerializer):
