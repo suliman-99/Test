@@ -1,11 +1,10 @@
 import cv2
 
 
-def compare_and_visualize_drawing_similarity():
+def compare_and_visualize_drawing_similarity(image_path2):
     # Paths to the images
     # Paths to the images
-    image_path1 = 'Assets/10.jpg'
-    image_path2 = 'Assets/11.jpg'
+    image_path1 = 'Assets/11.jpg'
 
     # Read and resize images
     image1 = cv2.imread(image_path1)
