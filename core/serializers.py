@@ -7,6 +7,6 @@ class Q10Serializer(serializers.Serializer):
 
 class Q11Serializer(serializers.ModelSerializer):
     class Meta:
-        model = FakeModel
+        model = Fake
         fields = ['image']
 
