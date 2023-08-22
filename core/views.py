@@ -6,13 +6,13 @@ from Q11 import compare_and_visualize_drawing_similarity
 
 
 class Q10View(CreateAPIView):
-    serializer_class = Q10Serializer()
+    serializer_class = Q10Serializer
     def create(self, request, *args, **kwargs):
         return Response(check_sentence_meaning(request.data.get('sentence')))
 
 
 class Q11View(CreateAPIView):
-    serializer_class = Q11Serializer()
+    serializer_class = Q11Serializer
     def create(self, request, *args, **kwargs):
         fake = super().create(request, *args, **kwargs)
         return Response(compare_and_visualize_drawing_similarity(fake.image.url))
