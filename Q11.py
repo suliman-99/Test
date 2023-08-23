@@ -1,14 +1,30 @@
 import cv2
+import base64
+import numpy as np
 
 
-def compare_and_visualize_drawing_similarity(image_path2):
-    # Paths to the images
-    # Paths to the images
-    image_path1 = 'Assets/11.jpg'
+def compare_and_visualize_drawing_similarity(Drawing):
+
+    # Replace this with your actual Base64-encoded image data
+    base64_image_data = Drawing
+
+    # Decode the Base64 data
+    image_binary = base64.b64decode(base64_image_data)
+
+    # Convert binary image data to a NumPy array
+    image_np = np.frombuffer(image_binary, dtype=np.uint8)
+
+    # Decode the NumPy array using OpenCV
+    decoded_image = cv2.imdecode(image_np, cv2.IMREAD_COLOR)
+
+
+    # # Paths to the image
+    image_path1 = 'Assets/9.jpg'
+    # image_path2 = 'Assets/10.jpg'
 
     # Read and resize images
     image1 = cv2.imread(image_path1)
-    image2 = cv2.imread(image_path2)
+    image2 = decoded_image
     image1 = cv2.resize(image1, (150, 150))
     image2 = cv2.resize(image2, (150, 150))
 

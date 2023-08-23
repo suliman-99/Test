@@ -10,12 +10,9 @@ class Q10Serializer(serializers.Serializer):
         return {"data": check_sentence_meaning(attrs.get('sentence'))}
 
 
-class Q11Serializer(serializers.ModelSerializer):
-    class Meta:
-        model = Fake
-        fields = ['image']
+class Q11Serializer(serializers.Serializer):
+    image = serializers.CharField()
 
     def validate(self, attrs):
-        fake = super().create(attrs)
-        return {"data": compare_and_visualize_drawing_similarity(fake.image.url)}
+        return {"data": compare_and_visualize_drawing_similarity(attrs.get('image'))}
 
